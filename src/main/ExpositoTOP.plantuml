@@ -1,0 +1,242 @@
+@startuml
+
+title __EXPOSITOTOP's Class Diagram__\n
+
+  namespace top {
+    class top.TOPTW {
+    - depots : int
+            - distanceMatrix : double[][]
+            - dueTime : double[]
+            - maxRoutes : double
+            - maxTimePerRoute : double
+            - nodes : int
+            - readyTime : double[]
+            - score : double[]
+            - serviceTime : double[]
+            - vehicles : int
+            - x : double[]
+            - y : double[]
+            + TOPTW()
+            + addNode()
+            + addNodeDepot()
+            + calculateDistanceMatrix()
+            + getDistance()
+            + getDistance()
+            + getDistance()
+            + getDistance()
+            + getDueTime()
+            + getMaxRoutes()
+            + getMaxTimePerRoute()
+            + getNodes()
+            + getPOIs()
+            + getReadyTime()
+            + getScore()
+            + getScore()
+            + getServiceTime()
+            + getTime()
+            + getVehicles()
+            + getX()
+            + getY()
+            + isDepot()
+            + setDueTime()
+            + setMaxRoutes()
+            + setMaxTimePerRoute()
+            + setNodes()
+            + setReadyTime()
+            + setScore()
+            + setServiceTime()
+            + setX()
+            + setY()
+            + toString()
+    }
+  }
+  
+
+  namespace top {
+    class top.TOPTWEvaluator {
+    {static} + NO_EVALUATED : double
+            + evaluate()
+    }
+  }
+  
+
+  namespace top {
+    class top.TOPTWGRASP {
+    {static} + NO_EVALUATED : double
+            - solutionTime : int
+            + GRASP()
+            + TOPTWGRASP()
+            + aleatorySelectionRCL()
+            + comprehensiveEvaluation()
+            + computeGreedySolution()
+            + fuzzySelectionAlphaCutRCL()
+            + fuzzySelectionBestFDRCL()
+            + getMaxScore()
+            + getSolution()
+            + getSolutionTime()
+            + setSolution()
+            + setSolutionTime()
+            + updateSolution()
+    }
+  }
+  
+
+  namespace top {
+    class top.TOPTWReader {
+    {static} + readProblem()
+    }
+  }
+  
+
+  namespace top {
+    class top.TOPTWRoute {
+    ~ id : int
+            ~ predecessor : int
+            ~ succesor : int
+            + getId()
+            + getPredeccesor()
+            + getSuccesor()
+            + setId()
+            + setPredeccesor()
+            + setSuccesor()
+            ~ TOPTWRoute()
+            ~ TOPTWRoute()
+    }
+  }
+  
+
+  namespace top {
+    class top.TOPTWSolution {
+    {static} + NO_INITIALIZED : int
+            - availableVehicles : int
+            - objectiveFunctionValue : double
+            - positionInRoute : int[]
+            - predecessors : int[]
+            - routes : int[]
+            - successors : int[]
+            - waitingTime : double[]
+            + TOPTWSolution()
+            + addRoute()
+            + equals()
+            + evaluateFitness()
+            + getAvailableVehicles()
+            + getCreatedRoutes()
+            + getDistance()
+            + getIndexRoute()
+            + getInfoSolution()
+            + getObjectiveFunctionValue()
+            + getPositionInRoute()
+            + getPredecessor()
+            + getPredecessors()
+            + getProblem()
+            + getSuccessor()
+            + getSuccessors()
+            + getWaitingTime()
+            + initSolution()
+            + isDepot()
+            + printSolution()
+            + setAvailableVehicles()
+            + setObjectiveFunctionValue()
+            + setPositionInRoute()
+            + setPredecessor()
+            + setSuccessor()
+            + setWaitingTime()
+    }
+  }
+  
+
+  namespace top {
+    class top.mainTOPTW {
+     {static} + main()
+    }
+  }
+  
+
+  namespace utilities {
+    class utilities.BellmanFord {
+    {static} - INFINITY : int
+            - distanceMatrix : int[][]
+            - distances : int[]
+            - edges1 : ArrayList<Integer>
+            - edges2 : ArrayList<Integer>
+            - nodes : int
+            - path : ArrayList<Integer>
+            - value : int
+            + BellmanFord()
+            + getDistances()
+            + getValue()
+            + solve()
+            - calculateEdges()
+    }
+  }
+  
+
+  namespace utilities {
+    class utilities.ExpositoUtilities {
+    {static} + ALIGNMENT_LEFT : int
+            {static} + ALIGNMENT_RIGHT : int
+            {static} + DEFAULT_COLUMN_WIDTH : int
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + getFormat()
+            {static} + isAcyclic()
+            {static} + isDouble()
+            {static} + isInteger()
+            {static} + multiplyMatrices()
+            {static} + printFile()
+            {static} + simplifyString()
+            {static} + thereIsPath()
+            {static} + writeTextToFile()
+            {static} - getFirstAppearance()
+    }
+  }
+  
+
+  namespace utilities {
+    class utilities.PowerSet {
+    - arr : E[]
+            - bset : BitSet
+            + PowerSet()
+            + hasNext()
+            + iterator()
+            + next()
+            + remove()
+    }
+  }
+  
+
+  namespace utils {
+    class utils.Pair {
+    + Pair()
+            {static} + create()
+            + equals()
+            + hashCode()
+    }
+  }
+  
+
+  top.TOPTWGRASP o-- top.TOPTWSolution : solution
+  top.TOPTWSolution o-- top.TOPTW : problem
+  utilities.PowerSet .up.|> java.lang.Iterable
+  utilities.PowerSet .up.|> java.util.Iterator
+  utils.Pair o-- F : first
+  utils.Pair o-- S : second
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
