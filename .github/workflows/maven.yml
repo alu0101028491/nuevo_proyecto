@@ -23,7 +23,7 @@ jobs:
         
   
 
-    runs-on: ${{matrix.platforms}}
+    runs-on: ${{matrix.platform}}
 
     steps:
     - uses: actions/checkout@v3
