@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix: 
         platform: [ubuntu-latest, macos-latest, windows-latest]
-        jdk: [8, 11, 19]
+        jdk: [11]
     runs-on: ${{matrix.platform}}
 
     steps:
