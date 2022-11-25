@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix: 
         platform: [ubuntu-latest, macos-latest, windows-latest]
-        jdfk: [9, 11, 10]
+        jdk: [9, 11, 10]
         
   
 
